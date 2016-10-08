@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+	compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+	compile 'javax.servlet:jstl:1.2'
+}
+
+jettyRun {
+	contextPath = "KPI"
+	httpPort = 8080
+}
+
+jettyRunWar {
+	contextPath = "KPI"
+	httpPort = 8080
+}
