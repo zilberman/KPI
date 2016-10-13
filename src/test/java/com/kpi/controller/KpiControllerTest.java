@@ -18,12 +18,12 @@ import org.mockito.MockitoAnnotations;
 import com.kpi.controller.KpiController;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/test-context.xml" })
+@ContextConfiguration(locations={"classpath*:test-context.xml"})
 public class KpiControllerTest {
     @Autowired
     private KpiController kpiController;
 
-    private MockMvc       mockMvc;
+    private MockMvc mockMvc;
 
     @Before
     public void setup() {

@@ -18,7 +18,7 @@ import org.mockito.Spy;
 import com.kpi.service.MenuItemService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/test-context.xml" })
+@ContextConfiguration(locations={"classpath*:test-context.xml"})
 public class MenuItemServiceTest {
 
     @Spy
