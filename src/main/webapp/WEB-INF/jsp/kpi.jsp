@@ -4,27 +4,36 @@
 	<title>KPI project</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="<c:url value='resources/js/scripts/DojoLocalConfig.js'/>"></script>
+ 	<script type="text/javascript" src="<c:url value='resources/js/dojo/dojo.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='resources/js/scripts/Main.js'/>"></script>
+	
+	<link rel="stylesheet" href="<c:url value='resources/js/dijit/themes/claro/claro.css'/>">
 </head>
-<body>
-	<div class="container">
-		<h2>KPI Project</h2>
-
-		<ul class="nav nav-tabs">
-			<c:forEach var="menuItem" items="${menuItems}">
-				<li><a data-toggle="tab" href="#${menuItem.key}">${menuItem.key}</a></li>
-	  		</c:forEach>
-		</ul>
-	  
-		<div class="tab-content">
-			<c:forEach var="menuItem" items="${menuItems}">
-				<div class="tab-pane fade" id="${menuItem.key}">
-	  				<h3>${menuItem.key}</h3>
-	  				<p>${menuItem.value}</p>
-	  			</div>
-			</c:forEach>
+<body class="claro">
+	<h3>KPI Project</h3>
+	
+	<div style="width: 800px; height: 600px">
+		<div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;">
+			<div data-dojo-type="dijit/layout/ContentPane" title="Home" data-dojo-props="selected:true">
+	            	<p>This is home page</p>
+	        </div>
+	        <div data-dojo-type="dijit/layout/ContentPane" title="Projects">
+	            	<p>This is page containing projects</p>
+	            	
+	            	<select data-dojo-type="dijit/form/ComboBox">
+						<c:forEach items="${projects}" var="project">
+							<option>${project.code} - ${project.name}</option>
+						</c:forEach>            	
+	            	</select>
+	        </div>
+	        <div data-dojo-type="dijit/layout/ContentPane" title="KPIs">
+	            	<p>This is page containing KPIs</p>
+	        </div>
+	        <div data-dojo-type="dijit/layout/ContentPane" title="Metrics">
+	            	<p>This is page containing metrics</p>
+	        </div>
 		</div>
 	</div>
 </body>
