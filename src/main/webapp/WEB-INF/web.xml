@@ -9,7 +9,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+        <param-value>/WEB-INF/context-configuration.xml</param-value>
     </context-param>
 
     <servlet>
