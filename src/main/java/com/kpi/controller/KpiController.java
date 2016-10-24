@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
 import com.kpi.model.Project;
 import com.kpi.service.MenuItemService;
 import com.kpi.service.ProjectService;
@@ -28,7 +30,7 @@ public class KpiController {
 
         model.addObject("menuItems", this.menuItemService.getMenuItems());
 
-        model.addObject("projects", projects);
+        model.addObject("projects", new Gson().toJson(projects));
 
         return model;
     }
