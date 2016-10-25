@@ -18,7 +18,7 @@
 	<div style="width: 800px; height: 600px">
 		<div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;">
 			<div data-dojo-type="dijit/layout/ContentPane" title="Home" data-dojo-props="selected:true">
-	            	<p>This is home page</p>
+				<div id="homeContainer"></div>
 	        </div>
 	        <div data-dojo-type="dijit/layout/ContentPane" title="Projects">
 	            	<p>This is page containing projects</p>
@@ -27,8 +27,7 @@
 	            		<button id="newProjectButton" data-dojo-type="dijit/form/Button" class="buttonWithPadding">Add new project</button>
 	            	</div>
 	            	
-	            	<select data-dojo-type="dijit/form/ComboBox" id="projectsDropDown">
-	            	</select>
+	            	<select data-dojo-type="dijit/form/ComboBox" id="projectsDropDown"></select>
 	            	
 	            	<input type="hidden" id="projectsStore" value='${projects}' />
 	            	
@@ -60,10 +59,10 @@
 	            	</div>
 	        </div>
 	        <div data-dojo-type="dijit/layout/ContentPane" title="KPIs">
-	            	<p>This is page containing KPIs</p>
+	        	<div id="kpiContainer"></div>
 	        </div>
 	        <div data-dojo-type="dijit/layout/ContentPane" title="Metrics">
-	            	<p>This is page containing metrics</p>
+	        	<div id="metricContainer"></div>
 	        </div>
 		</div>
 	</div>

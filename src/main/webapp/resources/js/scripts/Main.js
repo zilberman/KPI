@@ -1,6 +1,6 @@
-require(['dojo/dom', 'dijit/registry', 'dojo/parser', 'dojo/on', 'dojo/request', 'dojo/store/Memory', 'dojo/_base/config', 'dijit/layout/TabContainer',
-         'dijit/layout/ContentPane', 'dijit/form/ComboBox', 'dijit/form/Button', 'dijit/Dialog', 'dijit/form/TextBox', 'dojo/domReady!'],
-		function(dom, registry, parser, on, request, Memory, config) {
+require(['dojo/dom', 'dijit/registry', 'dojo/parser', 'dojo/on', 'dojo/request', 'dojo/store/Memory', 'dojo/_base/config', 'kpiWidgets/Home', 'kpiWidgets/Kpi', 'kpiWidgets/Metric',
+         'dijit/layout/TabContainer', 'dijit/layout/ContentPane', 'dijit/form/ComboBox', 'dijit/form/Button', 'dijit/Dialog', 'dijit/form/TextBox', 'dojo/domReady!'],
+		function(dom, registry, parser, on, request, Memory, config, Home, Kpi, Metric) {
 	
 	parser.parse();
 	
@@ -54,6 +54,15 @@ require(['dojo/dom', 'dijit/registry', 'dojo/parser', 'dojo/on', 'dojo/request',
 	on(okButton, 'click', function() {
 		sendDataToServer();
 	});
+	
+	var homeContainer = dom.byId('homeContainer');
+	new Home().placeAt(homeContainer);
+	
+	var kpiContainer = dom.byId('kpiContainer');
+	new Kpi().placeAt(kpiContainer);
+	
+	var metricContainer = dom.byId('metricContainer');
+	new Metric().placeAt(metricContainer);
 
 	bindProjectsStoreToDropDown(registry.byId('projectsDropDown'), JSON.parse(dom.byId('projectsStore').value));
 });
