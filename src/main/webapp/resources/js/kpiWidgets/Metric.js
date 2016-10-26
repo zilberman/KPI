@@ -5,5 +5,6 @@ define(['dojo/_base/declare', 'dijit/_WidgetBase', 'dijit/_TemplatedMixin', 'doj
 		postCreate: function() {
 			this.inherited(arguments);
 		}
+		
 	});
 });

@@ -1,0 +1,36 @@
+<div>
+	<p>This is page containing projects</p>
+	<div>
+		<button data-dojo-attach-point="newProjectButton" data-dojo-type="dijit/form/Button" style="margin: 10px">Add new project</button>
+	</div>
+	
+	<select data-dojo-type="dijit/form/ComboBox" data-dojo-attach-point="projectsDropDown"></select>
+	
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="addNewProjectDialog" title="Add new project">
+		<div class="dijitDialogPaneContentArea">
+	    	<table>
+	        	<tr>
+	            	<td>
+	            		<label for="projectName">Project name:</label>
+	            	</td>
+	            	<td>
+	            		<input data-dojo-type="dijit/form/TextBox" type="text" name="projectName" data-dojo-attach-point="projectName"/>
+	            	</td>
+	            </tr>
+	            <tr>
+	            	<td>
+	            		<label for="projectCode">Code:</label>
+	            	</td>
+	            	<td>
+	            		<input data-dojo-type="dijit/form/TextBox" type="text" name="projectCode" data-dojo-attach-point="projectCode"/>
+	            	</td>
+	            </tr>
+	        </table>
+		</div>
+		
+		<div class="dijitDialogPaneActionBar">
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="okButton">OK</button>
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="cancelButton">Cancel</button>
+		</div>
+	</div>
+</div>
