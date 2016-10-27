@@ -35,6 +35,7 @@
    <property name="annotatedClasses">
       <list>
          <value>com.kpi.model.Project</value>
+         <value>com.kpi.model.Kpi</value>
       </list>
    </property>
 </bean>

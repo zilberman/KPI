@@ -33,5 +33,6 @@
 	</div>
 	
 	<input type="hidden" id="projectsStore" value='${projects}'/>
+	<input type="hidden" id="kpisStore" value='${kpis}'/>
 </body>
 </html>

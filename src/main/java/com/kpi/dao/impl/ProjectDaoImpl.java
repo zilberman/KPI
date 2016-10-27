@@ -19,13 +19,11 @@ public class ProjectDaoImpl implements ProjectDao {
     @Override
     public void create(final Project project) {
         this.sessionFactory.getCurrentSession().save(project);
-
     }
 
     @Override
     public void delete(final Project project) {
         this.sessionFactory.getCurrentSession().delete(project);
-
     }
 
     @Override
@@ -36,6 +34,5 @@ public class ProjectDaoImpl implements ProjectDao {
     @Override
     public void update(final Project project) {
         this.sessionFactory.getCurrentSession().update(project);
-
     }
 }

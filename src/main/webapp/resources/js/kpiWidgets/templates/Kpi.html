@@ -1,3 +1,27 @@
 <div>
 	<p>This is page for KPIs</p>
+	<div>
+		<button data-dojo-attach-point="newKpiButton" data-dojo-type="dijit/form/Button">Add new KPI</button>
+	</div>
+	
+	<select data-dojo-type="dijit/form/ComboBox" data-dojo-attach-point="kpisDropDown"></select>
+	
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="addNewKpiDialog" title="Add new KPI">
+		<div class="dijitDialogPaneContentArea">
+	    	<table>
+	        	<tr>
+	            	<td>
+	            		<label for="kpiName">KPI name:</label>
+	            	</td>
+	            	<td>
+	            		<input data-dojo-type="dijit/form/TextBox" type="text" name="kpiName" data-dojo-attach-point="kpiName"/>
+	            	</td>
+	            </tr>
+	        </table>
+		</div>
+		
+		<div class="dijitDialogPaneActionBar">
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="okButton">OK</button>
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="cancelButton">Cancel</button>
+		</div>
 </div>
