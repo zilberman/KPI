@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="<c:url value='resources/js/scripts/Main.js'/>"></script>
 	
 	<link rel="stylesheet" href="<c:url value='resources/js/dijit/themes/claro/claro.css'/>">
+	<link rel="stylesheet" href="<c:url value='resources/js/dojox/grid/resources/claroGrid.css'/>">
 	<link rel="stylesheet" href="<c:url value='resources/js/kpiWidgets/css/Project.css'/>">
 </head>
 <body class="claro">

@@ -5,5 +5,5 @@ var dojoConfig = {
 		
 		host: 'http://localhost:8080/KPI',
 		
-		packages: ['dojo', 'dijit', 'kpiWidgets']
+		packages: ['dojo', 'dijit', 'dojox', 'kpiWidgets']
 };

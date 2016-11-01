@@ -33,4 +33,17 @@
 			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="cancelButton">Cancel</button>
 		</div>
 	</div>
+	
+	<div data-dojo-type="dijit/Dialog" data-dojo-attach-point="assignKpiToProjectDialog" title="Assign KPI to project">
+		<div class="dijitDialogPaneContentArea">
+	    	<select data-dojo-type="dijit/form/ComboBox" data-dojo-attach-point="kpisDropDown"></select>
+		</div>
+		
+		<div class="dijitDialogPaneActionBar">
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="assignKpiButton">OK</button>
+			<button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-point="cancelKpiButton">Cancel</button>
+		</div>
+	</div>
+	
+	<div id="projectsGrid"></div>
 </div>
