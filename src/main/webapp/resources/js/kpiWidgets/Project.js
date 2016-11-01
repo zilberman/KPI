@@ -53,10 +53,17 @@ define(['dojo/dom', 'dojo/_base/lang', 'dojo/_base/declare', 'dojo/_base/config'
 		assignKpi: function() {
 			if (this.kpisDropDown.attr('item')) {
 				var projectId = this._selectedProjectId;
-				console.log(projectId);
 				
 				var kpiId = this.kpisDropDown.attr('item').Id;
-				console.log(kpiId);
+				
+				request.post(config.host + "/add-kpi-to-project", {
+					data: {
+						projectId: projectId,
+						kpiId: kpiId
+					}
+				}).then(function(result) {
+					console.log(result);
+				});
 			}
 			
 			this.assignKpiToProjectDialog.hide();
