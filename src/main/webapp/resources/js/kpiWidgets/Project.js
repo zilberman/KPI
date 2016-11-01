@@ -2,12 +2,15 @@ define(['dojo/dom', 'dojo/_base/lang', 'dojo/_base/declare', 'dojo/_base/config'
 	return declare([_WidgetBase, _TemplatedMixin, _WidgetsInTemplateMixin], {
 		templateString: template,
 		
+		_selectedProjectId: -1,
+		
 		postCreate: function() {
 			this.inherited(arguments);
 			
 			this.initialise();
 			
 			this.bindProjectsStoreToDropDown(this.projectsDropDown, JSON.parse(dom.byId('projectsStore').value));
+			this.bindKpisStoreToDropDown(this.kpisDropDown, JSON.parse(dom.byId('kpisStore').value));
 		},
 		
 		startup: function() {
@@ -48,7 +51,16 @@ define(['dojo/dom', 'dojo/_base/lang', 'dojo/_base/declare', 'dojo/_base/config'
 		},
 		
 		assignKpi: function() {
+			if (this.kpisDropDown.attr('item')) {
+				var projectId = this._selectedProjectId;
+				console.log(projectId);
+				
+				var kpiId = this.kpisDropDown.attr('item').Id;
+				console.log(kpiId);
+			}
+			
 			this.assignKpiToProjectDialog.hide();
+			
 		},
 		
 		bindProjectsStoreToDropDown: function(projectsDropDown, projectsStoreData) {
@@ -58,6 +70,15 @@ define(['dojo/dom', 'dojo/_base/lang', 'dojo/_base/declare', 'dojo/_base/config'
 			});
 			
 			projectsDropDown.store = projectsStore;
+		},
+		
+		bindKpisStoreToDropDown: function(kpisDropDown, kpisStoreData) {
+			var kpisStore = new Memory({
+				data: kpisStoreData,
+				idProperty: 'Id'
+			});
+			
+			kpisDropDown.store = kpisStore;
 		},
 		
 		createProjectsGrid: function(projectsStoreData) {
@@ -77,13 +98,11 @@ define(['dojo/dom', 'dojo/_base/lang', 'dojo/_base/declare', 'dojo/_base/config'
 				]
 			}, 'projectsGrid');
 			
-			on(projectsGrid, 'RowClick', function(evt) {
+			on(projectsGrid, 'RowDblClick', lang.hitch(this, function(evt) {
 				var index = evt.rowIndex;
 				var rowData = projectsGrid.getItem(index);
-				console.log(rowData.Id);
-			});
-			
-			on(projectsGrid, 'RowDblClick', lang.hitch(this, function(evt) {
+				this._selectedProjectId = rowData.Id;
+				
 				this.assignKpiToProjectDialog.show();
 			}));
 			

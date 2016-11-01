@@ -1,12 +1,18 @@
 package com.kpi.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,22 +21,26 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
-    private long   Id;
+    private long     Id;
 
     @Column(name = "Name")
-    private String name;
+    private String   name;
 
     @Column(name = "Code")
-    private String code;
+    private String   code;
 
     @Column(name = "Status")
-    private String status;
+    private String   status;
 
     @Column(name = "DateStarted", nullable = false)
-    private Date   dateStarted;
+    private Date     dateStarted;
 
     @Column(name = "DateFinished")
-    private Date   dateFinished;
+    private Date     dateFinished;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(name = "Project_Kpi", joinColumns = { @JoinColumn(name = "Project_Id") }, inverseJoinColumns = { @JoinColumn(name = "Kpi_Id") })
+    private Set<Kpi> kpis = new HashSet<>();
 
     public Project() {
     }
@@ -64,6 +74,10 @@ public class Project {
         return this.Id;
     }
 
+    public Set<Kpi> getKpis() {
+        return this.kpis;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -86,6 +100,10 @@ public class Project {
 
     public void setId(final long id) {
         this.Id = id;
+    }
+
+    public void setKpis(final Set<Kpi> kpis) {
+        this.kpis = kpis;
     }
 
     public void setName(final String name) {

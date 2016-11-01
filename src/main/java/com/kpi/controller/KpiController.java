@@ -23,10 +23,8 @@ import com.kpi.service.ProjectService;
 public class KpiController {
     @Autowired
     private MenuItemService menuItemService;
-
     @Autowired
     private ProjectService  projectService;
-
     @Autowired
     private KpiService      kpiService;
 

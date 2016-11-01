@@ -15,6 +15,11 @@ public class ProjectServiceImpl implements ProjectService {
     private ProjectDao projectDao;
 
     @Override
+    public void addKpiToProject(final long projectId, final long kpiId) {
+
+    }
+
+    @Override
     public void create(final Project project) {
         this.projectDao.create(project);
     }
