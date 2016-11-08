@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
+import com.kpi.constants.KpiConstants;
 import com.kpi.model.Project;
 import com.kpi.model.ProjectStatus;
 import com.kpi.service.ProjectService;
@@ -29,7 +30,7 @@ public class ProjectController {
 
         this.projectService.addKpiToProject(projectId, kpiId);
 
-        return new ResponseEntity<String>("Assigned", HttpStatus.OK);
+        return new ResponseEntity<String>(KpiConstants.KPI_ASSIGNED, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/project", method = RequestMethod.POST)
